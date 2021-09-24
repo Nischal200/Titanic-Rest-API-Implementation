@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'Titanic'
+      MYSQL_ROOT_PASSWORD: "rikesh"
+    ports:
+        - "3306:3306"
+    expose:
+        - "3306"
+
+  #phpmyadmin:
+    #image: phpmyadmin
+    #restart: always
+    #ports:
+      #- 8080:80
+    #environment:
+      #- PMA_ARBITRARY=1
+  app:
+    build: .
+    image: nischal200/containersolution-api
+    #restart: always
+    #ports:
+      #- 8081:80
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/Titanic?autoReconnect=true&useSSL=false
+    #- PMA_ARBITRARY=1
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+   # command: tail -f /dev/null
+    

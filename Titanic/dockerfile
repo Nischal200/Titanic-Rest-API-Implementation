@@ -1,0 +1,6 @@
+FROM openjdk:8
+RUN mkdir -p /app
+WORKDIR /app
+COPY Titanic-0.0.1-SNAPSHOT.jar .
+ENTRYPOINT ["java", "-jar", "Titanic-0.0.1-SNAPSHOT.jar"]
+

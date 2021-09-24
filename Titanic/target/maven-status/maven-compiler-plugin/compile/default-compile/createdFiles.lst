@@ -1,0 +1,5 @@
+com/Model/People.class
+com/CSVLoader.class
+com/Controller/AppController.class
+com/TitanicApplication.class
+com/Repo/PeopleRepository.class
